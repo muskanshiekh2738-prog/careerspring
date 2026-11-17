@@ -170,6 +170,30 @@ div[data-testid="stAlert"] div {
     color: #C62828 !important;
     opacity: 1 !important;
 }
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] span,
+div[data-testid="stAlert"] div {
+    color: #C62828 !important;
+    opacity: 1 !important;
+}
+
+/* Make form submit buttons visible */
+div[data-testid="stFormSubmitButton"] button {
+    background-color: #D5E1D5 !important;
+    color: #000000 !important;
+    border: 2px solid #A8BDAF !important;
+    border-radius: 8px !important;
+}
+
+div[data-testid="stFormSubmitButton"] button p {
+    color: #000000 !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:hover {
+    background-color: #C1D2C5 !important;
+    color: #000000 !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -517,10 +541,10 @@ else:
                 use_container_width=True
             )
 
-        if submitted:
-            connection = get_connection()
+            if submitted:
+             connection = get_connection()
 
-            connection.execute("""
+             connection.execute("""
                 INSERT INTO profiles (
                     user_id, phone, college, degree, branch,
                     graduation_year, skills, career_goal,
@@ -536,9 +560,7 @@ else:
                     skills = excluded.skills,
                     career_goal = excluded.career_goal,
                     github_username = excluded.github_username
-            """,
-            )
-            (
+            """, (
                 user["id"],
                 phone,
                 college,
@@ -548,12 +570,23 @@ else:
                 skills,
                 career_goal,
                 github_username
-            )
+            ))
 
             connection.commit()
             connection.close()
 
-            st.success("Your profile has been saved successfully! 🎉")
+            st.markdown("""
+            <div style="
+                background-color: #EAF1EB;
+                color: #24543B;
+                border: 1px solid #A8BDAF;
+                padding: 14px;
+                border-radius: 10px;
+                font-weight: 600;
+            ">
+                ✓ Your profile has been saved successfully! 🎉
+            </div>
+            """, unsafe_allow_html=True)
 
     elif page == "Resume Builder":
         st.title("📄 CareerSpring Resume Builder")
