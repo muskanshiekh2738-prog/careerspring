@@ -23,8 +23,12 @@ st.set_page_config(
 )
 
 # Initialize database
-initialize_database()
-initialize_courses()
+@st.cache_resource
+def setup_database():
+    initialize_database()
+    initialize_courses()
+
+setup_database()
 
 # ---------------- SESSION STATE ----------------
 
