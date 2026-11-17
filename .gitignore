@@ -7,3 +7,6 @@ venv/
 *.db
 *.sqlite
 *.sqlite3
+generated_resumes/
+Greeting Response.html
+Greeting Response_files/
