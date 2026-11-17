@@ -1,0 +1,10 @@
+
+streamlit
+pandas
+plotly
+python-docx
+reportlab
+scikit-learn
+requests
+bcrypt
+python-dotenv
