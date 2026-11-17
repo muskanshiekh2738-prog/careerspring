@@ -155,6 +155,21 @@ div[role="radiogroup"] label {
 .stMultiSelect {
     color: #000000 !important;
 }
+/* Dropdowns */
+/* Make error messages clearly visible */
+div[data-testid="stAlert"] {
+    background-color: #F5F0E5 !important;
+    border: 1px solid #A8BDAF !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+}
+
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] span,
+div[data-testid="stAlert"] div {
+    color: #C62828 !important;
+    opacity: 1 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
